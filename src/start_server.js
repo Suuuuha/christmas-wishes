@@ -1,4 +1,4 @@
-const app = require('/server.js');
+const app = require('./server.js');
 
 const PORT = process.env.PORT || 4040;
 
