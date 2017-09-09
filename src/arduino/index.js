@@ -18,6 +18,16 @@ arduino.connect = cb => {
         cs: 4
       }
     })
+    display.draw([
+     "00000000",
+     "01100110",
+     "01100110",
+     "00000000",
+     "00000000",
+     "01000010",
+     "00111100",
+     "00000000"
+   ])
     arduino.displayMessage = displayMessage(display)
     display.on()
     cb()

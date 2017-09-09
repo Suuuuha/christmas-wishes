@@ -6,6 +6,7 @@ const searchInterval = 30000;
 
 arduino.connect(()=>{
   console.log('Christmas Magic is happening on the arduino')
+  twitter.getTweets()
   setInterval(() => {
     twitter.getTweets()
   }, searchInterval)  

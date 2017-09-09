@@ -2,8 +2,8 @@ const postTweet = require('./post_tweet')
 const CronJob = require('cron').CronJob;
 const arduino = require('../arduino/index.js')
 
-const hashtag = '#NazarethWishes';
-const hashtagReg = /#NazarethWishes|\n/g;
+const hashtag = '#nazwishes';
+const hashtagReg = /#nazwishes|\n/g;
 
 let usedIds = [];
 let lastScheduledTweetTime = Date.now()
