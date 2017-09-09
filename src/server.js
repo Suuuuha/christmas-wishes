@@ -1,16 +1,9 @@
 const express = require('express');
-const twit = require('twit');
 require('env2')('./config.env');
 
 const app = express();
 
-
-const T =  new twit({
-  consumer_key: process.env.API_KEY,
-  consumer_secret: process.env.API_SECRET_KEY,
-  access_token: process.env.ACCESS_TOKEN,
-  access_token_secret: process.env.ACCESS_TOKEN_SECRET
-})
+const twitter = require('./twitter').T;
 
 const hashtag = '#SuhaPleaseFindThis';
 const hashtagReg = /#SuhaPleaseFindThis|\n/g;
@@ -38,10 +31,6 @@ let loop = setInterval(() => {
              usedIds.push(tweetId)
           }
       })
-  })
 }, searchInterval)
-//
-// T.post('statuses/update', { status: 'SUHA WASSUP' }, (err, data, response) => {
-//   console.log(data);
-// })
+
 module.exports = app;
