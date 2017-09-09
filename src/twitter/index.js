@@ -1,5 +1,6 @@
 const twit = require('twit')
 const postTweet = require('./post_tweet')
+const getTweets = require('./get_tweets')
 
 const T =  new twit({
   consumer_key: process.env.API_KEY,
@@ -9,6 +10,5 @@ const T =  new twit({
 })
 
 module.exports = {
-  T,
-  sendConfirmation: postTweet(T)
+  getTweets: getTweets(T)
 }
