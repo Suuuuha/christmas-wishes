@@ -1,14 +1,12 @@
-const express = require('express');
 require('env2')('./config.env');
-
-const searchInterval = 10000;
-
-const app = express();
-
+const arduino = require('./arduino')
 const twitter = require('./twitter');
 
-let loop = setInterval(() => {
-  twitter.getTweets()
-}, searchInterval)
+const searchInterval = 30000;
 
-module.exports = app;
+arduino.connect(()=>{
+  console.log('Christmas Magic is happening on the arduino')
+  setInterval(() => {
+    twitter.getTweets()
+  }, searchInterval)  
+});

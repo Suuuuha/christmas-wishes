@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/start_server.js"
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Suuuuha/christmas-wishes#readme",
   "dependencies": {
     "cron": "^1.2.1",
+    "dateformat": "^2.0.0",
     "env2": "^2.2.0",
     "johnny-five": "^0.11.6",
     "twit": "^2.2.9"

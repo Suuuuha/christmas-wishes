@@ -2,8 +2,8 @@ const postTweet = require('./post_tweet')
 const CronJob = require('cron').CronJob;
 const arduino = require('../arduino/index.js')
 
-const hashtag = '#SuhaPleaseFindThis';
-const hashtagReg = /#SuhaPleaseFindThis|\n/g;
+const hashtag = '#NazarethWishes';
+const hashtagReg = /#NazarethWishes|\n/g;
 
 let usedIds = [];
 let lastScheduledTweetTime = Date.now()
@@ -21,7 +21,7 @@ const getTweets = (T) => () => {
         return
       } else {
         usedIds.push(tweetId)
-        const tweetText = data.statuses[index].text.replace(hashtagReg, " ")
+        const tweetText = data.statuses[index].text.replace(hashtagReg, "")
         const userId = data.statuses[index].user.id
         const tweetTime = Math.max(lastScheduledTweetTime, Date.now())+20000
         const tweetTimeFormat = new Date(tweetTime)
