@@ -20,7 +20,6 @@
   "dependencies": {
     "cron": "^1.2.1",
     "env2": "^2.2.0",
-    "express": "^4.15.4",
     "johnny-five": "^0.11.6",
     "twit": "^2.2.9"
   }
