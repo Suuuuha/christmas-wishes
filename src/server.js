@@ -14,7 +14,7 @@ const T =  new twit({
 
 const hashtag = '#SuhaPleaseFindThis';
 const hashtagReg = /#SuhaPleaseFindThis|\n/g;
-const searchInterval = 1000;
+const searchInterval = 10000;
 
 let wishesQueue = [];
 let usedIds = [];
