@@ -12,33 +12,34 @@ const T =  new twit({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET
 })
 
+const hashtag = '#SuhaPleaseFindThis';
+const hashtagReg = /#SuhaPleaseFindThis|\n/g;
+const searchInterval = 1000;
+
 let wishesQueue = [];
 let usedIds = [];
 
 let loop = setInterval(() => {
-  T.get('search/tweets', { q: '#SuhaPleaseFindThis' }, (err, data, res) => {
+  T.get('search/tweets', { q: hashtag }, (err, data, res) => {
     if (err) {
       console.log({ err })
       return
     }
     const tweetIds = data.statuses.map(status => status.id);
     tweetIds.forEach((tweetId, index) => {
-      console.log(tweetId)
-      console.log(data.statuses[index].text)
       if (usedIds.includes(tweetId)) {
         return
       } else {
         wishesQueue.push({
               id: tweetId,
-              text: data.statuses[index].text.replace(/#SuhaPleaseFindThis|\n/g, " ")
+              text: data.statuses[index].text.replace(hashtagReg, " "),
+              userId: data.statuse[index].user.id
             })
              usedIds.push(tweetId)
           }
       })
-    console.log({ wishesQueue });
-    console.log({ tweetIds });
   })
-}, 1000)
+}, searchInterval)
 //
 // T.post('statuses/update', { status: 'SUHA WASSUP' }, (err, data, response) => {
 //   console.log(data);
