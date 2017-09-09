@@ -1,7 +1,8 @@
 const sanitise = tweet => tweet.slice(0, 140);
 
 const postTweet = T => ({ userHandle, inReplyToStatusId, msgTime }, cb) => {
-  const tweet = sanitise(`@${userHandle}, Merry Christmas! Be ready for your message at ${msgTime}`)
+  console.log('replying to tweet:', inReplyToStatusId)
+  const tweet = sanitise(`Merry Christmas @${userHandle}! Be ready for your message at ${msgTime}`)
   const opts = {
     status: tweet,
     in_reply_to_status_id: inReplyToStatusId

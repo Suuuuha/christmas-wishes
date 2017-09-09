@@ -14,7 +14,7 @@ const getTweets = (T) => () => {
       console.log({ err })
       return
     }
-    const tweetIds = data.statuses.map(status => status.id);
+    const tweetIds = data.statuses.map(status => status.id_str);
     tweetIds.forEach((tweetId, index) => {
       if (usedIds.includes(tweetId)) {
         console.log('already got tweet ' + tweetId)

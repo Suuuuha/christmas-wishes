@@ -10,6 +10,5 @@ const T =  new twit({
 })
 
 module.exports = {
-  getTweets: getTweets(T),
-  sendConfirmation: postTweet(T)
+  getTweets: getTweets(T)
 }
