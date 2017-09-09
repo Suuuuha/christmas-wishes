@@ -1,5 +1,6 @@
 const five = require("johnny-five")
 const displayMessage = require('./display_message')
+const displaySmiley = require('./display_smiley')
 
 let display
 
@@ -19,11 +20,13 @@ arduino.connect = cb => {
       }
     })
     arduino.displayMessage = displayMessage(display)
+    arduino.displaySmiley = displaySmiley(display)
     display.on()
     cb()
   })
 }
 
 arduino.displayMessage = () => console.error('No display')
+arduino.displaySmiley = () => console.error('No display')
 
 module.exports = arduino
